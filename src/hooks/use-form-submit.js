@@ -10,15 +10,12 @@ const useFormSubmit = (data) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
     setSubmitState({ success: false, error: false, loading: true });
     submitEntry(data)
       .then((res) => {
-        console.log(res);
         setSubmitState({ success: true, error: false, loading: false });
       })
       .catch((err) => {
-        console.log(err);
         setSubmitState({ success: false, loading: false, error: true });
       });
   };

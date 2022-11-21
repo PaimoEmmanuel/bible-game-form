@@ -16,7 +16,7 @@ const Form = () => {
   });
   const [handleSubmit, submitState] = useFormSubmit(formData);
   return loading ? (
-    "Loading..."
+    <p className="form">Loading...</p>
   ) : !submitState.success ? (
     <form className="form" onSubmit={handleSubmit}>
       <div className="form-field">
@@ -129,7 +129,9 @@ const Form = () => {
   ) : (
     <div className="success">
       <p className="success-text">Entry successfully saved!</p>
-      <a className="success-link" href="/">Continue</a>
+      <a className="success-link" href="/">
+        Continue
+      </a>
     </div>
   );
 };
