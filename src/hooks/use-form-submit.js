@@ -17,7 +17,6 @@ const useFormSubmit = (data) => {
         res.data.content.forEach(({ t }) => {
           text += " " + t;
         });
-        console.log(text);
         submitEntry({ ...data, text })
           .then((res) => {
             setSubmitState({ success: true, error: false, loading: false });
@@ -27,7 +26,6 @@ const useFormSubmit = (data) => {
           });
       })
       .catch((err) => {
-        console.log(err);
         setSubmitState({ success: false, loading: false, error: true });
       });
   };
