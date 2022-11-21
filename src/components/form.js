@@ -7,7 +7,6 @@ import { bibleBooks } from "../utils/bible-books";
 const Form = () => {
   const [loading, tags, categories] = useFormPopulate();
   const [formData, setFormData] = useState({
-    text: "",
     chapter: "",
     verses: [],
     book_id: "",
@@ -67,19 +66,6 @@ const Form = () => {
             setFormData({ ...formData, verses: e.target.value.split(",") });
           }}
         />
-        <p className="error-text">This is a required question</p>
-      </div>
-      <div className="form-field">
-        <label for="verse-text">Verses Text </label>
-        <span>Paste the text of the bible verse(es)</span>
-        <textarea
-          name="verse-text"
-          id="verse-text"
-          required
-          onChange={(e) => {
-            setFormData({ ...formData, text: e.target.value });
-          }}
-        ></textarea>
         <p className="error-text">This is a required question</p>
       </div>
       <div className="form-field">
