@@ -1,7 +1,8 @@
 import axios from "axios";
 
+// TODO - Make token dynamic because of expiration
 const bearer_token =
-  "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjY5MDI4MzQ4LCJleHAiOjE2NjkxMTQ3NDh9.A8m5bCDvbFtgfmBF2RQCp6MPfkyIGVsbc1jY6RwyiLP38OqH0NCjy1R0om4xvtvvj_9-eLCgLAsFnawgQGhMVg";
+  "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjY5MjIyNjg0LCJleHAiOjE2NjkzMDkwODR9.g3SG3M6BbeGuw6-dCs6jZteLvBfaKEpxGEOVkPyRYlZnHgX3hc5b1f9_gKjPZC22Y7eYganrLYGvVoTtaTaE1Q";
 const conf = {
   baseURL: process.env.REACT_APP_BASE_URL,
   // timeout: 100000,
