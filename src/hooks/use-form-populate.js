@@ -1,17 +1,29 @@
 import { useEffect, useState } from "react";
-import useCategories from "./use-categories";
-import useTags from "./use-tags";
+import useCategoriesAndTags from "./use-categories-and-tags";
 
 const useFormPopulate = () => {
-  const [loadingCategories, categories] = useCategories();
-  const [loadingTags, tags] = useTags();
+  const {
+    loadingCategories,
+    categories,
+    categoriesError,
+    loadingTags,
+    tags,
+    tagsError,
+  } = useCategoriesAndTags();
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   useEffect(() => {
     if (!loadingTags && !loadingCategories) {
       setLoading(false);
     }
-  }, [loadingTags, loadingCategories]);
-  return [loading, tags, categories];
+    if (tagsError) {
+      setError(tagsError);
+    }
+    if (categoriesError) {
+      setError(categoriesError);
+    }
+  }, [loadingTags, loadingCategories, categoriesError, tagsError]);
+  return { loading, tags, categories, error };
 };
 
 export default useFormPopulate;

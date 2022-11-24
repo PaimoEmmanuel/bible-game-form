@@ -13,6 +13,14 @@ const useFormSubmit = (data) => {
     setSubmitState({ success: false, error: false, loading: true });
     getBibleText(data.book_id, data.chapter, data.verses)
       .then((res) => {
+        if (res.data.content.length < 1) {
+          setSubmitState({
+            success: false,
+            loading: false,
+            error: "Bible verse not found",
+          });
+          return;
+        }
         let text = "";
         res.data.content.forEach(({ t }) => {
           text += " " + t;
@@ -22,11 +30,19 @@ const useFormSubmit = (data) => {
             setSubmitState({ success: true, error: false, loading: false });
           })
           .catch((err) => {
-            setSubmitState({ success: false, loading: false, error: true });
+            setSubmitState({
+              success: false,
+              loading: false,
+              error: err.message || "An error occured, please try again.",
+            });
           });
       })
       .catch((err) => {
-        setSubmitState({ success: false, loading: false, error: true });
+        setSubmitState({
+          success: false,
+          loading: false,
+          error: err.message || "An error occured, please try again.",
+        });
       });
   };
 

@@ -111,3 +111,7 @@ body {
 .success-text {
   font-size: 24px;
 }
+.error-msg {
+  color: red;
+  margin-top: 3rem;
+}
