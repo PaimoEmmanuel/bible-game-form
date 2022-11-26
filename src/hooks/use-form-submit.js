@@ -30,7 +30,6 @@ const useFormSubmit = (data) => {
             setSubmitState({ success: true, error: false, loading: false });
           })
           .catch((err) => {
-            console.log(err.response.data.message);
             setSubmitState({
               success: false,
               loading: false,
@@ -41,7 +40,6 @@ const useFormSubmit = (data) => {
           });
       })
       .catch((err) => {
-        console.log(err);
         setSubmitState({
           success: false,
           loading: false,
