@@ -30,18 +30,24 @@ const useFormSubmit = (data) => {
             setSubmitState({ success: true, error: false, loading: false });
           })
           .catch((err) => {
+            console.log(err.response.data.message);
             setSubmitState({
               success: false,
               loading: false,
-              error: err.message || "An error occured, please try again.",
+              error:
+                err.response?.data?.message ||
+                "An error occured, please try again.",
             });
           });
       })
       .catch((err) => {
+        console.log(err);
         setSubmitState({
           success: false,
           loading: false,
-          error: err.message || "An error occured, please try again.",
+          error:
+            err.response?.data?.message ||
+            "An error occured, please try again.",
         });
       });
   };
