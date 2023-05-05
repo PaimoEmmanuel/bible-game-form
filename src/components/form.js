@@ -57,10 +57,7 @@ const Form = () => {
         </div>
         <div className="form-field">
           <label for="verses">Verses </label>
-          <span>
-            Verse or verses (if more than one). separate verses with a comma e.g
-            23,24
-          </span>
+          <span>Verse (enter one verse).</span>
           <input
             id="verses"
             type="text"
